@@ -16,3 +16,11 @@ Added link to mainscreen on line 20 of about.html
 ## E.
 Added 5 parts if there are currently 0 in BootStrapData.java from line 44 to 80 <br/>
 Added 5 products if there are currently 0 in BootStrapData.java from line 106 to 116
+
+## F.
+Added "Buy Now" button to mainscreen.html line 87<br/>
+Added buy product method in AddProductController on line 129 to 140<br/>
+Created successful purchase landing page titled "confirmationbuyproduct"<br/>
+Created unsuccessful purchase landing page titled "errorbuyproduct"<br/>
+Created "confirmationBuyProductController" which redirects to success page<br/>
+Created "errorBuyProductController" which redirects to unsuccessful page<br/>
