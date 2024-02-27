@@ -102,6 +102,22 @@ class PartTest {
     }
 
     @Test
+    void getMin() {
+        int min =3;
+        partIn.setMin(min);
+        assertEquals(min,partIn.getMin());
+        partOut.setMin(min);
+        assertEquals(min,partOut.getMin());
+    }
+    @Test
+    void getMax() {
+        int max =100;
+        partIn.setMax(max);
+        assertEquals(max,partIn.getMax());
+        partOut.setMax(max);
+        assertEquals(max,partOut.getMax());
+    }
+    @Test
     void getProducts() {
         Product product1= new Product();
         Product product2= new Product();

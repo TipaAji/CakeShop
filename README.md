@@ -41,4 +41,8 @@ Added validation checks in AddInhousePartController.java lines 44 to 50<br/>
 Added validation checks in AddOutsourcePartController.java lines 44 to 50<br/>
 
 ## H.
-Added an or statment to the if statment on line 36 of EnufPartsValidator.java that checks if the part inventory minus 1 is less than the min and returns false if so
+Added an or statment to the if statment on line 36 of EnufPartsValidator.java 
+that checks if the part inventory minus 1 is less than the min and returns false if so
+
+## J.
+Added two tests in PartTest.java for getMax and getMin on lines 105 to 119
