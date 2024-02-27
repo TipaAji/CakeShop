@@ -12,3 +12,7 @@ Added necessary meta tags, bootstrap link, and title <br/>
 Added Link to About page in mainscreen.html line 20 <br/>
 Added information about the shop in about.html on lines 15 to 19 <br/>
 Added link to mainscreen on line 20 of about.html
+
+## E.
+Added 5 parts if there are currently 0 in BootStrapData.java from line 44 to 80 <br/>
+Added 5 products if there are currently 0 in BootStrapData.java from line 106 to 116
