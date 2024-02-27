@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,13 @@ public class AddOutsourcedPartController {
     @PostMapping("/showFormAddOutPart")
     public String submitForm(@Valid @ModelAttribute("outsourcedpart") OutsourcedPart part, BindingResult bindingResult, Model theModel){
         theModel.addAttribute("outsourcedpart",part);
+        if(part.getInv() < part.getMin()) {
+            ObjectError error = new ObjectError("globalError", "Inventory cannot be less than min");
+            bindingResult.addError(error);
+        }
+        if( part.getInv() > part.getMax()) {
+            bindingResult.addError(new ObjectError("globalError", "Inventory cannot be more than max"));
+        }
         if(bindingResult.hasErrors()){
             return "OutsourcedPartForm";
         }
