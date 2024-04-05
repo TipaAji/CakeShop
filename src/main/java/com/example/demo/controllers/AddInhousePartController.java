@@ -11,6 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +41,15 @@ public class AddInhousePartController{
     @PostMapping("/showFormAddInPart")
     public String submitForm(@Valid @ModelAttribute("inhousepart") InhousePart part, BindingResult theBindingResult, Model theModel){
         theModel.addAttribute("inhousepart",part);
+        if(part.getInv() < part.getMin()) {
+            ObjectError error = new ObjectError("globalError", "Inventory cannot be less than min");
+            theBindingResult.addError(error);
+        }
+        if( part.getInv() > part.getMax()) {
+            theBindingResult.addError(new ObjectError("globalError", "Inventory cannot be more than max"));
+        }
         if(theBindingResult.hasErrors()){
+            System.out.println(theBindingResult.getGlobalErrors());
             return "InhousePartForm";
         }
         else{
